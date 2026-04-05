@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>셜록 | Profile</title>
+  <meta
+    name="description"
+    content="CAE, 엔지니어링, 오픈소스 기반 SaaS를 준비하는 셜록의 웹명함 프로필"
+  />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="page">
+    <div class="card" id="profileCard">
+      <header class="hero reveal" id="heroSection">
+        <div class="heroSlideshow">
+          <div class="heroSlide isActive" style="background-image: url('./image1.jpg');"></div>
+          <div class="heroSlide" style="background-image: url('./image2.jpg');"></div>
+          <div class="heroSlide" style="background-image: url('./image3.jpg');"></div>
+          <div class="heroOverlay"></div>
+        </div>
+
+        <div class="heroContent">
+          <div class="badge">Engineering Profile</div>
+          <h1 class="name">Sherlock</h1>
+          <p class="role">CAE Engineer · OpenSource CAE SaaS Builder</p>
+
+          <div class="typingWrap">
+            <span id="typingText"></span><span class="typingCursor">|</span>
+          </div>
+
+          <p class="intro">
+            열유동 해석, 구조해석, 제품개발 경험을 바탕으로
+            오픈소스 기반 CAE와 AI 지원 기능을 결합한 실무형 SaaS를 준비하고 있습니다.
+            기술의 본질은 정확도, 재현성, 그리고 신뢰 가능한 실행 구조에 있다고 믿습니다.
+          </p>
+
+          <div class="metaRow">
+            <div class="metaItem">Location: Korea</div>
+            <div class="metaItem">Focus: OpenFOAM · CalculiX · SaaS</div>
+            <div class="metaItem">Local Time: <span id="currentTime">--:--:--</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="section reveal">
+          <h2 class="sectionTitle">About</h2>
+          <p class="aboutText">
+            전자기기 방열, 유동해석, 구조해석, 제품개발 경험을 기반으로
+            엔지니어가 실제 업무에 사용할 수 있는 안정적 해석 서비스 구조를 고민하고 있습니다.
+            단순한 데모보다 신뢰 가능한 결과, 검증 가능한 흐름, 그리고 지속 가능한 시스템을 지향합니다.
+          </p>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="sectionTitle">Contact</h2>
+          <div class="contactGroup">
+            <div class="contactLine">
+              <span class="contactValue" id="emailText">yourmail@example.com</span>
+              <button class="copyButton" id="copyEmailButton" type="button">이메일 복사</button>
+            </div>
+
+            <div class="contactLine">
+              <span class="contactValue">github.com/yourid</span>
+              <a
+                class="linkButton"
+                href="https://github.com/yourid"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+
+            <div class="contactLine">
+              <span class="contactValue">yourblog.com</span>
+              <a
+                class="linkButton"
+                href="https://yourblog.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="sectionTitle">Focus</h2>
+          <ul class="skillList">
+            <li class="skillItem">OpenFOAM</li>
+            <li class="skillItem">CalculiX</li>
+            <li class="skillItem">CFD</li>
+            <li class="skillItem">Thermal Analysis</li>
+            <li class="skillItem">Python</li>
+            <li class="skillItem">SaaS MVP</li>
+          </ul>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="sectionTitle">Project Vision</h2>
+          <p class="projectText">
+            상용 CAE의 진입 장벽을 낮추면서도 정확도와 실무성을 잃지 않는
+            오픈소스 기반 해석 플랫폼을 구축하는 것이 목표입니다.
+            사용자는 복잡한 설치와 시행착오 대신, 더 빠르게 문제 정의와 검증에 집중할 수 있어야 합니다.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>
+          Background photo by
+          <a
+            class="photoCredit"
+            href="https://unsplash.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash
+          </a>
+        </div>
+        <div>© 2026 Sherlock</div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">복사되었습니다.</div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
