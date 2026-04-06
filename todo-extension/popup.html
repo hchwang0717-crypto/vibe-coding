@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Todo</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Todo List</h1>
+
+    <div class="inputRow">
+      <input id="todoInput" type="text" placeholder="할 일을 입력하세요" />
+      <button id="addButton">추가</button>
+    </div>
+
+    <p id="emptyMessage" class="emptyMessage">등록된 할 일이 없습니다.</p>
+    <ul id="todoList" class="todoList"></ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

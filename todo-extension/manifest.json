@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Todo Extension",
+  "version": "1.0.0",
+  "description": "A simple todo manager built as a Chrome extension.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Simple Todo",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
