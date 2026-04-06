@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  width: 360px;
+  width: 600px;
   background: #f7f7f8;
 }
 
@@ -67,6 +67,21 @@ h1 {
   flex: 1;
 }
 
+.todoContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.todoText {
+  flex: 1;
+}
+
+.todoDate {
+  width: 140px;
+}
+
 .todoText {
   font-size: 14px;
   word-break: break-word;
@@ -82,4 +97,14 @@ h1 {
   background: transparent;
   cursor: pointer;
   font-size: 14px;
+}
+
+
+.todoDate {
+  width: fit-content;
+  padding: 4px 6px;
+  border: 1px solid #d0d4d9;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #f9fafb;
 }

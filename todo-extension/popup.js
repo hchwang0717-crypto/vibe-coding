@@ -5,9 +5,26 @@ const emptyMessage = document.getElementById("emptyMessage");
 
 let todoItems = [];
 
+function getTodayDateString() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function loadTodos() {
   chrome.storage.local.get(["todoItems"], (result) => {
-    todoItems = result.todoItems || [];
+    const storedTodoItems = result.todoItems || [];
+
+    todoItems = storedTodoItems.map((todoItem) => {
+      return {
+        ...todoItem,
+        date: todoItem.date || getTodayDateString()
+      };
+    });
+
+    saveTodos();
     renderTodos();
   });
 }
@@ -40,12 +57,26 @@ function renderTodos() {
       toggleTodo(todoIndex);
     });
 
+    const contentArea = document.createElement("div");
+    contentArea.className = "todoContent";
+
     const textSpan = document.createElement("span");
     textSpan.className = "todoText";
     if (todoItem.completed) {
       textSpan.classList.add("completed");
     }
     textSpan.textContent = todoItem.text;
+
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.className = "todoDate";
+    dateInput.value = todoItem.date || getTodayDateString();
+    dateInput.addEventListener("change", (event) => {
+      updateTodoDate(todoIndex, event.target.value);
+    });
+
+    contentArea.appendChild(textSpan);
+    contentArea.appendChild(dateInput);
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "deleteButton";
@@ -55,7 +86,7 @@ function renderTodos() {
     });
 
     leftArea.appendChild(checkBox);
-    leftArea.appendChild(textSpan);
+    leftArea.appendChild(contentArea);
 
     listItem.appendChild(leftArea);
     listItem.appendChild(deleteButton);
@@ -74,7 +105,8 @@ function addTodo() {
   const todoItem = {
     id: Date.now(),
     text: todoText,
-    completed: false
+    completed: false,
+    date: getTodayDateString()
   };
 
   todoItems.push(todoItem);
@@ -87,6 +119,15 @@ function toggleTodo(todoIndex) {
   todoItems[todoIndex].completed = !todoItems[todoIndex].completed;
   saveTodos();
   renderTodos();
+}
+
+function updateTodoDate(todoIndex, newDateValue) {
+  if (!newDateValue) {
+    return;
+  }
+
+  todoItems[todoIndex].date = newDateValue;
+  saveTodos();
 }
 
 function deleteTodo(todoIndex) {
